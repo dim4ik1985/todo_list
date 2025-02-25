@@ -26,3 +26,7 @@ __Требования к коду:__
  - Проект должен запускаться командой `npm i && npm run start`
  - Проект доступен на GitHub Pages/Vercel/etc.
 
+---
+[![Deploy static content to Pages](https://github.com/dim4ik1985/todo_list/actions/workflows/deploy.yml/badge.svg)](https://github.com/dim4ik1985/todo_list/actions/workflows/deploy.yml)
+### [Переход на сайт](https://dim4ik1985.github.io/todo_list/)
+
