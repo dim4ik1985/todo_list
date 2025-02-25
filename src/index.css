@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-base: 'Poppins', sans-serif;
+
+  --color-primary-800: #1e1b22;
+  --color-primary-700: #221f26;
+  --color-primary-600: #27232b;
+  --color-primary-500: #2b2730;
+  --color-primary-400: #403d45;
+  --color-primary-300: #555259;
+  --color-primary-200: #6b686e;
+  --color-primary-50: #aaa9ac;
+
+  --color-accent-800: #b38135;
+  --color-accent-700: #cc933d;
+  --color-accent-600: #e6a644;
+  --color-accent-500: #ffb84c;
+  --color-accent-400: #ffbf5e;
+  --color-accent-300: #ffc670;
+  --color-accent-200: #ffcd82;
+
+  --color-white-shade: #f6f6f6;
+}
+
+html {
+  @apply scroll-smooth;
+  font-family: var(--font-base), sans-serif;
+}
