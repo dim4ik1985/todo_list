@@ -11,7 +11,7 @@ interface Task {
   completed: boolean;
 }
 
-function App() {
+export const App = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [task, setTask] = useState<Task>({ id: '', text: '', completed: false });
@@ -58,15 +58,24 @@ function App() {
   return (
     <>
       <div className={'w-full overflow-y-auto'}>
-        <div className={'m-auto max-w-[90rem] px-4'}>
+        <div className={'m-auto max-w-[90rem] md:px-4'}>
           <div className={'m-auto max-w-[60rem] bg-gray-200'}>
-            <div className={'flex flex-col items-center gap-4 px-6 py-4'}>
-              <h1 className={'text text-primary-500 pt-7 text-7xl/[1.15] tracking-tight'}>todos</h1>
+            <div className={'mx-4 flex flex-col gap-4 py-4 md:items-center md:px-6'}>
+              <h1
+                className={
+                  'text text-primary-500 pt2 text-4xl tracking-tight md:pt-7 md:text-7xl/[1.15]'
+                }
+              >
+                todos
+              </h1>
               <div className={'flex w-full flex-col gap-1'}>
                 <div className={'relative flex items-center bg-white shadow-lg'}>
                   <input
                     ref={inputRef}
-                    className={'text-primary-500 w-full px-4 py-4 text-2xl focus:outline-none'}
+                    maxLength={45}
+                    className={
+                      'text-primary-500 w-full py-4 pr-12 pl-4 text-lg focus:outline-none md:text-2xl'
+                    }
                     type="text"
                     placeholder="What needs to be done?"
                     onChange={handleChange}
@@ -78,7 +87,7 @@ function App() {
                     disabled={!inputRef.current?.value}
                   >
                     <AiOutlineSend
-                      className={`h-8 w-8 ${inputRef.current?.value ? 'cursor-pointer text-blue-500' : 'text-gray-400'}`}
+                      className={`h-6 w-6 md:h-8 md:w-8 ${inputRef.current?.value ? 'cursor-pointer text-blue-500' : 'text-gray-400'}`}
                     />
                   </button>
                 </div>
@@ -87,32 +96,36 @@ function App() {
                     <li
                       key={task.id}
                       className={
-                        'flex items-center gap-6 bg-white px-4 py-4 shadow-lg transition-all duration-200'
+                        'flex items-center gap-2 bg-white px-4 py-4 shadow-lg transition-all duration-200 md:gap-6'
                       }
                     >
                       <div
                         onClick={() => toggleCheck(task.id)}
-                        className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-gray-400 opacity-30 transition-all duration-200 ${task.completed ? 'opacity-70' : ''}`}
+                        className={`flex min-h-6 min-w-6 cursor-pointer items-center justify-center rounded-full border border-gray-400 opacity-30 transition-all duration-200 md:min-h-8 md:min-w-8 ${task.completed ? 'opacity-70' : ''}`}
                       >
                         <FcCheckmark
-                          className={`h-6 w-6 transition-all duration-200 ${task.completed ? 'opacity-100' : 'opacity-0'}`}
+                          className={`h-4 w-4 transition-all duration-200 md:h-6 md:w-6 ${task.completed ? 'opacity-100' : 'opacity-0'}`}
                         />
                       </div>
-                      <span
-                        className={`text-primary-500 text-2xl font-light tracking-tight transition-all duration-200 ${task.completed ? 'line-through opacity-20' : ''}`}
-                      >
-                        {task.text}
-                      </span>
+                      <div>
+                        <p
+                          className={`text-primary-500 text-lg font-light tracking-tight break-all transition-all duration-200 md:text-2xl ${task.completed ? 'line-through opacity-20' : ''}`}
+                        >
+                          {task.text}
+                        </p>
+                      </div>
                     </li>
                   ))}
                 </ul>
                 <div
-                  className={'flex items-center justify-between gap-6 bg-white px-4 py-4 shadow-lg'}
+                  className={
+                    'flex flex-col items-center justify-between gap-6 bg-white px-4 py-4 shadow-lg md:flex-row'
+                  }
                 >
                   <span className={'text-primary-50 text-lg tracking-tight'}>
                     {activeTaskCount} items left
                   </span>
-                  <div className={'flex items-center gap-4'}>
+                  <div className={'flex items-center gap-2 md:gap-4'}>
                     <button
                       onClick={() => handleTypeCheck('all')}
                       className={`text-primary-50 cursor-pointer text-lg tracking-tight transition-all duration-100 ${typeTasks === 'all' ? 'rounded-md border px-1' : ''}`}
@@ -148,6 +161,4 @@ function App() {
       </div>
     </>
   );
-}
-
-export default App;
+};

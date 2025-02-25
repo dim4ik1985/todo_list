@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
-    "test": "jest",
+    "test": "jest --config=jest.config.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "start": "tsc && vite build && vite preview --open",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
@@ -20,7 +20,9 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.8",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
